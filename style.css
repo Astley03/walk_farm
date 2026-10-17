@@ -1,0 +1,937 @@
+
+:root {
+  --green: #48674e;
+  --green-dark: #304a37;
+  --green-light: #e9f1e6;
+  --background: #fdfcf9;
+  --alternate: #f5f7f1;
+  --text: #35453a;
+  --muted: #758077;
+  --border: #dfe7dc;
+  --white: #ffffff;
+  --shadow: 0 12px 35px rgba(42, 60, 45, .09);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 85px;
+}
+
+body {
+  margin: 0;
+  font-family: "Noto Sans TC", "Microsoft JhengHei", Arial, sans-serif;
+  color: var(--text);
+  background: var(--background);
+  line-height: 1.8;
+}
+
+button, input {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img {
+  max-width: 100%;
+}
+
+.container {
+  width: min(1180px, 92%);
+  margin: auto;
+}
+
+.muted, .map-note {
+  color: var(--muted);
+}
+
+/* 導覽列 */
+
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background: rgba(255, 255, 255, .97);
+  border-bottom: 1px solid var(--border);
+  backdrop-filter: blur(12px);
+}
+
+.nav-wrap {
+  min-height: 75px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  white-space: nowrap;
+  font-size: 21px;
+  font-weight: 800;
+  letter-spacing: 2px;
+}
+
+.brand img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  object-fit: contain;
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  gap: 17px;
+}
+
+.nav a {
+  font-size: 13px;
+  font-weight: 650;
+}
+
+.nav a:hover {
+  color: #7da17a;
+}
+
+.nav-book {
+  color: white !important;
+  background: var(--green);
+  border-radius: 30px;
+  padding: 10px 15px;
+}
+
+.menu-toggle {
+  display: none;
+  background: none;
+  border: 0;
+  font-size: 25px;
+}
+
+/* 按鈕 */
+
+.btn {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  background: var(--green);
+  color: white;
+  border: 1px solid var(--green);
+  border-radius: 8px;
+  padding: 11px 19px;
+  margin: 5px 5px 5px 0;
+  font-size: 13px;
+  font-weight: 700;
+  transition: .2s;
+}
+
+.btn:hover {
+  background: var(--green-dark);
+  transform: translateY(-2px);
+}
+
+.btn.outline {
+  background: white;
+  color: var(--green);
+}
+
+.btn.outline:hover {
+  background: var(--green-light);
+}
+
+.btn.light {
+  background: white;
+  color: var(--green-dark);
+  border-color: white;
+}
+
+.btn.transparent {
+  background: transparent;
+  color: white;
+  border-color: white;
+}
+
+/* 首頁 */
+
+.hero {
+  min-height: 610px;
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  color: white;
+  overflow: hidden;
+}
+
+.hero-image {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    90deg,
+    rgba(17, 35, 22, .75),
+    rgba(17, 35, 22, .12)
+  );
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  padding: 100px 0;
+}
+
+.hero-content span {
+  letter-spacing: 4px;
+  font-size: 13px;
+}
+
+.hero h1 {
+  font-size: clamp(48px, 7vw, 85px);
+  letter-spacing: 9px;
+  margin: 8px 0 15px;
+}
+
+.hero p {
+  font-size: 17px;
+}
+
+.hero-buttons {
+  margin-top: 22px;
+}
+
+/* 共用區塊 */
+
+.section {
+  padding: 90px 0;
+}
+
+.section.alternate {
+  background: var(--alternate);
+}
+
+.section-title {
+  margin-bottom: 35px;
+}
+
+.section-title span {
+  color: #829c7c;
+  font-size: 12px;
+  letter-spacing: 3px;
+  font-weight: 800;
+}
+
+.section-title h2 {
+  font-size: 34px;
+  margin: 6px 0 8px;
+  letter-spacing: 2px;
+}
+
+.section-title p {
+  color: var(--muted);
+  margin: 0;
+}
+
+.house-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 24px;
+}
+
+.card, .contact-card, .rule-card {
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+.card {
+  box-shadow: var(--shadow);
+}
+
+.card-image {
+  width: 100%;
+  height: 280px;
+  object-fit: cover;
+  display: block;
+}
+
+.card-body {
+  padding: 24px;
+}
+
+.card-body h3 {
+  margin-top: 0;
+}
+
+.card-body p {
+  color: var(--muted);
+}
+
+/* 房型相簿 */
+
+.room-detail {
+  margin-top: 35px;
+}
+
+.room-panel {
+  background: white;
+  padding: 25px;
+  border-radius: 16px;
+  border: 1px solid var(--border);
+}
+
+.room-header {
+  display: flex;
+  justify-content: space-between;
+  gap: 15px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.room-main-image {
+  width: 100%;
+  max-height: 530px;
+  object-fit: contain;
+  background: #f4f4f0;
+  border-radius: 12px;
+  cursor: zoom-in;
+}
+
+.room-thumbs {
+  display: flex;
+  gap: 10px;
+  overflow-x: auto;
+  margin-top: 12px;
+  padding-bottom: 8px;
+}
+
+.room-thumbs button {
+  padding: 0;
+  border: 2px solid transparent;
+  border-radius: 8px;
+  background: none;
+  flex-shrink: 0;
+}
+
+.room-thumbs button.active {
+  border-color: var(--green);
+}
+
+.room-thumbs img {
+  width: 105px;
+  height: 75px;
+  object-fit: cover;
+  border-radius: 6px;
+}
+
+/* 餐飲 */
+
+.tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 22px;
+}
+
+.tab {
+  border: 1px solid var(--border);
+  background: white;
+  padding: 10px 22px;
+  border-radius: 30px;
+  color: var(--green);
+  font-weight: 700;
+}
+
+.tab.active {
+  background: var(--green);
+  color: white;
+}
+
+.food-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 20px;
+}
+
+.food-card {
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 12px;
+  text-align: center;
+  cursor: zoom-in;
+}
+
+.food-card img {
+  width: 100%;
+  height: 360px;
+  object-fit: contain;
+}
+
+.food-card p {
+  font-size: 13px;
+  color: var(--muted);
+}
+
+.notice {
+  margin-top: 30px;
+  border-radius: 14px;
+  padding: 25px;
+  background: white;
+  border: 1px solid var(--border);
+}
+
+.warning {
+  display: block;
+  margin: 12px 0;
+  padding: 14px 18px;
+  background: #fff0e7;
+  border-left: 5px solid #c36e44;
+  color: #80452b;
+  font-weight: 800;
+  border-radius: 8px;
+}
+
+.order-box {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 35px;
+  margin-top: 30px;
+}
+
+.copy-template {
+  padding: 20px;
+  background: white;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  white-space: pre-wrap;
+  font-size: 14px;
+  line-height: 2;
+}
+
+/* 插畫地圖 */
+
+.explore-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 340px;
+  gap: 24px;
+  align-items: start;
+}
+
+.illustration-map {
+  width: 100%;
+  aspect-ratio: 800 / 540;
+  min-height: 400px;
+  position: relative;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  background: #f6faf3;
+}
+
+.map-background {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  inset: 0;
+}
+
+.map-labels {
+  fill: #6c7e64;
+  font-size: 19px;
+  font-weight: 750;
+  text-anchor: middle;
+}
+
+.map-labels .main-label {
+  font-size: 34px;
+  fill: #516d4a;
+}
+
+.map-labels .river-label {
+  fill: #598da3;
+  font-size: 15px;
+}
+
+.map-pins {
+  position: absolute;
+  inset: 0;
+}
+
+.map-pin {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  border: 0;
+  background: transparent;
+  padding: 0;
+  z-index: 3;
+}
+
+.pin-circle {
+  display: grid;
+  place-items: center;
+  width: 39px;
+  height: 39px;
+  background: var(--green);
+  color: white;
+  border-radius: 50%;
+  border: 3px solid white;
+  box-shadow: 0 4px 12px #0003;
+  font-weight: 800;
+  transition: .2s;
+}
+
+.map-pin.food .pin-circle {
+  background: #db8a51;
+}
+
+.map-pin.play .pin-circle {
+  background: #76a36c;
+}
+
+.map-pin.fun .pin-circle {
+  background: #8992d7;
+}
+
+.map-pin.selected .pin-circle,
+.map-pin:hover .pin-circle {
+  transform: scale(1.17);
+  box-shadow: 0 5px 18px #0004;
+}
+
+.pin-name {
+  position: absolute;
+  top: 50%;
+  left: 28px;
+  transform: translateY(-50%);
+  background: #fffffff0;
+  border: 1px solid var(--border);
+  border-radius: 25px;
+  padding: 4px 9px;
+  white-space: nowrap;
+  font-size: 11px;
+  color: var(--text);
+  max-width: 110px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.map-pin.flip .pin-name {
+  left: auto;
+  right: 28px;
+}
+
+.map-legend {
+  position: absolute;
+  z-index: 6;
+  bottom: 12px;
+  left: 12px;
+  display: flex;
+  gap: 7px;
+  flex-wrap: wrap;
+}
+
+.map-legend span {
+  background: #ffffffea;
+  border-radius: 25px;
+  padding: 5px 9px;
+  font-size: 11px;
+  border: 1px solid var(--border);
+}
+
+.map-popup {
+  position: absolute;
+  z-index: 10;
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 14px;
+  width: 205px;
+  max-width: 85%;
+  box-shadow: var(--shadow);
+}
+
+.map-popup.hidden {
+  display: none;
+}
+
+.map-popup h4 {
+  margin: 0 0 5px;
+}
+
+.map-popup p {
+  color: var(--muted);
+  font-size: 12px;
+  margin: 0 0 8px;
+}
+
+.map-popup a {
+  color: var(--green);
+  font-weight: 700;
+  font-size: 12px;
+}
+
+.map-note {
+  font-size: 13px;
+}
+
+.explore-sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.detail-card, .places-container {
+  border: 1px solid var(--border);
+  background: white;
+  padding: 20px;
+  border-radius: 16px;
+}
+
+.detail-card h3 {
+  margin: 8px 0;
+}
+
+.detail-card p {
+  color: var(--muted);
+  font-size: 14px;
+}
+
+.place-list {
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+  max-height: 360px;
+  overflow-y: auto;
+}
+
+.place-item {
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 12px;
+  background: #fbfcfa;
+}
+
+.place-item.active {
+  border-color: #749a72;
+  background: #eef5eb;
+}
+
+.place-item h4 {
+  margin: 0;
+}
+
+.place-item p {
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.place-item button {
+  border: 0;
+  background: none;
+  color: var(--green);
+  font-weight: 700;
+  padding: 0;
+  margin-right: 12px;
+}
+
+.place-item a {
+  font-size: 12px;
+  color: var(--green);
+  font-weight: 700;
+}
+
+/* 伴手禮 */
+
+.coming-soon {
+  border: 1px solid var(--border);
+  background: white;
+  padding: 75px 25px;
+  border-radius: 18px;
+  text-align: center;
+}
+
+.gift-icon {
+  font-size: 55px;
+}
+
+.coming-soon h3 {
+  font-size: 34px;
+}
+
+/* 入住須知 */
+
+.rules-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 18px;
+}
+
+.rule-card {
+  padding: 25px;
+}
+
+.rule-card h3 {
+  margin-top: 0;
+}
+
+.rule-card p {
+  color: #667368;
+}
+
+/* 聯絡資訊 */
+
+.contact-card {
+  padding: 25px;
+}
+
+.line-section {
+  margin-top: 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  padding: 25px;
+  background: var(--alternate);
+  border-radius: 16px;
+}
+
+.qr-code {
+  width: 170px;
+  height: 170px;
+  object-fit: contain;
+}
+
+.footer {
+  background: var(--green-dark);
+  color: white;
+  padding: 45px 0;
+}
+
+.footer p {
+  opacity: .8;
+  font-size: 13px;
+}
+
+.floating-line {
+  position: fixed;
+  bottom: 22px;
+  right: 22px;
+  background: #477d4a;
+  color: white;
+  padding: 13px 20px;
+  border-radius: 30px;
+  font-size: 13px;
+  font-weight: 800;
+  z-index: 900;
+  box-shadow: var(--shadow);
+}
+
+/* 圖片放大 */
+
+.modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(15, 25, 17, .91);
+  z-index: 2000;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 25px;
+}
+
+.modal.open {
+  display: flex;
+}
+
+.modal img {
+  max-width: 92vw;
+  max-height: 80vh;
+  object-fit: contain;
+}
+
+.modal p {
+  color: white;
+}
+
+.modal-close, .modal-prev, .modal-next {
+  position: absolute;
+  background: white;
+  border: 0;
+  border-radius: 50%;
+  width: 44px;
+  height: 44px;
+  font-size: 28px;
+}
+
+.modal-close {
+  top: 20px;
+  right: 20px;
+}
+
+.modal-prev {
+  left: 20px;
+  top: 50%;
+}
+
+.modal-next {
+  right: 20px;
+  top: 50%;
+}
+
+.toast {
+  position: fixed;
+  bottom: 80px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--green-dark);
+  color: white;
+  padding: 12px 20px;
+  border-radius: 30px;
+  z-index: 3000;
+  display: none;
+}
+
+/* 響應式設計 */
+
+@media (max-width: 1100px) {
+  .nav {
+    gap: 10px;
+  }
+
+  .nav a {
+    font-size: 12px;
+  }
+
+  .explore-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 800px) {
+  .menu-toggle {
+    display: block;
+  }
+
+  .nav {
+    display: none;
+    position: absolute;
+    top: 75px;
+    left: 0;
+    right: 0;
+    padding: 20px;
+    background: white;
+    box-shadow: var(--shadow);
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .nav.open {
+    display: flex;
+  }
+
+  .nav a {
+    padding: 9px 0;
+    font-size: 15px;
+  }
+
+  .hero {
+    min-height: 500px;
+  }
+
+  .house-grid,
+  .rules-grid,
+  .order-box {
+    grid-template-columns: 1fr;
+  }
+
+  .food-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .section {
+    padding: 65px 0;
+  }
+}
+
+@media (max-width: 520px) {
+  .hero {
+    min-height: 460px;
+  }
+
+  .hero h1 {
+    font-size: 45px;
+  }
+
+  .hero p {
+    font-size: 14px;
+  }
+
+  .section-title h2 {
+    font-size: 29px;
+  }
+
+  .food-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .food-card img {
+    height: auto;
+  }
+
+  .illustration-map {
+    min-height: 320px;
+  }
+
+  .pin-circle {
+    width: 31px;
+    height: 31px;
+    font-size: 12px;
+  }
+
+  .pin-name {
+    display: none;
+  }
+
+  .map-pin.selected .pin-name {
+    display: block;
+  }
+
+  .map-labels {
+    font-size: 15px;
+  }
+
+  .map-labels .main-label {
+    font-size: 28px;
+  }
+
+  .line-section {
+    flex-direction: column;
+    align-items: start;
+  }
+
+  .floating-line {
+    bottom: 15px;
+    right: 15px;
+  }
+}
