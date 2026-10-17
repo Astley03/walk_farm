@@ -1,0 +1,442 @@
+
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="田邊走走宜蘭冬山民宿，提供房型介紹、餐飲代訂、周邊景點、合作優惠與入住資訊。">
+  <title>田邊走走｜宜蘭冬山民宿</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="main.js" defer></script>
+</head>
+<body>
+
+<header class="header">
+  <div class="container nav-wrap">
+    <a class="brand" href="#home">
+      <img src="assets/logo.jpg" alt="田邊走走 Logo">
+      <span>田邊走走</span>
+    </a>
+
+    <button class="menu-toggle" id="menuToggle"
+      aria-label="開啟選單" aria-expanded="false">☰</button>
+
+    <nav class="nav" id="nav">
+      <a href="#rooms">房型介紹</a>
+      <a href="#dining">餐飲服務</a>
+      <a href="#explore">周邊探索</a>
+      <a href="#partners">合作廠商</a>
+      <a href="#shop">民宿選物</a>
+      <a href="#rules">入住須知</a>
+      <a href="#location">交通資訊</a>
+      <a class="nav-book" href="#rooms">立即訂房 ↗</a>
+    </nav>
+  </div>
+</header>
+
+<main id="home">
+
+  <!-- 首頁 -->
+  <section class="hero">
+    <img class="hero-image"
+      src="assets/房型/首頁形象照.png"
+      alt="田邊走走民宿外觀">
+    <div class="hero-overlay"></div>
+    <div class="hero-content container">
+      <span>YILAN · DONGSHAN</span>
+      <h1>田邊走走</h1>
+      <p>在田野與微風之間，留一段時間給自己。<br>
+      住進宜蘭的慢生活，享受自在相聚的每一刻。</p>
+      <div class="hero-buttons">
+        <a href="#rooms" class="btn light">探索房型 →</a>
+        <a href="#dining" class="btn transparent">餐飲與加購服務</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 房型介紹 -->
+  <section class="section" id="rooms">
+    <div class="container">
+      <div class="section-title">
+        <span>OUR STAY</span>
+        <h2>房型介紹</h2>
+        <p>兩棟不同的空間，同樣自在的旅程。</p>
+      </div>
+
+      <div class="house-grid" id="houseCards"></div>
+
+      <div id="roomDetail" class="room-detail"></div>
+    </div>
+  </section>
+
+  <!-- 餐飲服務 -->
+  <section class="section alternate" id="dining">
+    <div class="container">
+      <div class="section-title">
+        <span>DINING & SERVICES</span>
+        <h2>餐飲服務</h2>
+        <p>查看合作廠商的菜單照片，選擇喜歡的方案。</p>
+      </div>
+
+      <div class="tabs" id="foodTabs"></div>
+      <div class="food-grid" id="foodGallery"></div>
+
+      <div class="notice">
+        <h3>餐飲訂購提醒</h3>
+        <p>請提前 <strong>3～7 天</strong>預訂。</p>
+        <p>廠商會在預定日期配送至田邊走走 A 館或 B 館，由管家協助代收。</p>
+        <p>客人可以自行向廠商訂購，成功後將訂購資訊回傳官方 LINE；也可以請民宿協助代訂。</p>
+        <p>民宿提供烤肉爐。</p>
+        <div class="warning">
+          不提供木炭、烤肉網、夾子及點火用品，請自行準備。
+        </div>
+      </div>
+
+      <div class="order-box">
+        <div>
+          <h3>訂購流程</h3>
+          <ol>
+            <li>查看廠商菜單與方案。</li>
+            <li>選擇想要的廠商及套餐。</li>
+            <li>自行向廠商訂購，或委託民宿代訂。</li>
+            <li>將訂購資訊傳送至官方 LINE。</li>
+          </ol>
+          <p class="muted">實際菜單與方案以合作廠商最新資訊為準。</p>
+        </div>
+        <div>
+          <h3>LINE 詢問範本</h3>
+          <pre id="templateText" class="copy-template">田邊走走｜餐飲訂購／回報
+
+廠商名稱：
+套餐內容：
+送達日期：
+入住館別：A館／B館
+訂購方式：自行訂購／民宿代訂</pre>
+          <button class="btn" id="copyTemplate">複製詢問範本</button>
+          <a class="btn outline" target="_blank"
+            rel="noopener noreferrer"
+            href="https://line.me/R/ti/p/@395bjawe">
+            開啟官方 LINE ↗
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 周邊探索 -->
+  <section class="section" id="explore">
+    <div class="container">
+      <div class="section-title">
+        <span>DISCOVER YILAN</span>
+        <h2>周邊探索</h2>
+        <p>透過插畫式地圖，探索田邊走走周邊的食、玩、樂。</p>
+      </div>
+
+      <div class="tabs" id="placeTabs"></div>
+
+      <p class="map-note">
+        地圖為插畫式相對位置示意，非精確比例地圖。
+        景點實際位置、距離與行車路線請以 Google Maps 為準。
+      </p>
+
+      <div class="explore-grid">
+        <div>
+          <div class="illustration-map" id="illustrationMap">
+
+            <svg class="map-background"
+              viewBox="0 0 800 540"
+              preserveAspectRatio="none"
+              aria-hidden="true">
+
+              <rect width="800" height="540" fill="#f6faf3"/>
+
+              <!-- 周邊區域 -->
+              <path d="M55 80 Q155 25 275 90
+              Q325 150 235 195 Q110 215 55 155Z"
+                fill="#f1e9d6" stroke="#d9cbb0" stroke-width="3"/>
+
+              <path d="M555 60 Q705 20 765 120
+              Q785 215 595 205 Q515 160 555 60Z"
+                fill="#e5efd8" stroke="#c8d9b8" stroke-width="3"/>
+
+              <path d="M580 335 Q710 290 775 390
+              Q790 470 650 485 Q560 460 580 335Z"
+                fill="#dfeef1" stroke="#bad5dc" stroke-width="3"/>
+
+              <path d="M50 335 Q160 285 265 355
+              Q290 430 215 475 Q80 485 50 405Z"
+                fill="#e6efd7" stroke="#c5d5b7" stroke-width="3"/>
+
+              <!-- 冬山鄉主體 -->
+              <path d="M305 100 Q380 55 455 90
+              Q550 100 590 185
+              Q625 290 555 370
+              Q495 470 420 480
+              Q315 475 265 395
+              Q195 290 220 200
+              Q240 135 305 100Z"
+                fill="#d2e6bc"
+                stroke="#93b27c"
+                stroke-width="5"/>
+
+              <!-- 道路 -->
+              <path d="M125 245 Q320 155 580 225"
+                stroke="#d9c8a9" stroke-width="18"
+                stroke-linecap="round" fill="none"/>
+              <path d="M125 245 Q320 155 580 225"
+                stroke="#fffaf0" stroke-width="13"
+                stroke-linecap="round" fill="none"/>
+
+              <path d="M450 95 Q510 190 550 350"
+                stroke="#d9c8a9" stroke-width="16"
+                stroke-linecap="round" fill="none"/>
+              <path d="M450 95 Q510 190 550 350"
+                stroke="#fffaf0" stroke-width="11"
+                stroke-linecap="round" fill="none"/>
+
+              <!-- 河流 -->
+              <path d="M625 150 Q580 230 540 290
+                Q500 350 520 425"
+                stroke="#b0d9e7" stroke-width="24"
+                stroke-linecap="round" fill="none"/>
+              <path d="M625 150 Q580 230 540 290
+                Q500 350 520 425"
+                stroke="#85bed2" stroke-width="4"
+                fill="none"/>
+
+              <g class="map-labels">
+                <text x="145" y="135">山線方向</text>
+                <text x="650" y="135">羅東・五結</text>
+                <text x="675" y="402">蘇澳方向</text>
+                <text x="145" y="410">休閒農場</text>
+                <text x="395" y="260" class="main-label">冬山鄉</text>
+                <text x="575" y="205" class="river-label">冬山河</text>
+              </g>
+            </svg>
+
+            <div class="map-pins" id="mapPins"></div>
+
+            <div class="map-popup hidden" id="mapPopup"></div>
+
+            <div class="map-legend">
+              <span>🏡 民宿</span>
+              <span>🟠 食</span>
+              <span>🟢 玩</span>
+              <span>🔵 樂</span>
+            </div>
+          </div>
+
+          <p class="map-note" id="mapStatus">
+            點擊地圖標記，可以查看景點介紹。
+          </p>
+        </div>
+
+        <aside class="explore-sidebar">
+          <div class="detail-card" id="placeDetail"></div>
+
+          <div class="places-container">
+            <h3>景點清單</h3>
+            <div id="placeList" class="place-list"></div>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <!-- 合作廠商 -->
+  <section class="section alternate" id="partners">
+    <div class="container">
+      <div class="section-title">
+        <span>OUR PARTNERS</span>
+        <h2>合作廠商</h2>
+        <p>為旅客準備更多便利的在地合作服務。</p>
+      </div>
+
+      <div class="house-grid" id="partnerCards"></div>
+    </div>
+  </section>
+
+  <!-- 民宿選物 -->
+  <section class="section" id="shop">
+    <div class="container">
+      <div class="section-title">
+        <span>OUR COLLECTION</span>
+        <h2>民宿選物</h2>
+      </div>
+
+      <div class="coming-soon">
+        <div class="gift-icon">🎁</div>
+        <h3>敬請期待</h3>
+        <p>我們正在準備專屬於田邊走走的特色選物與伴手禮。</p>
+        <p>希望把旅途中的美好，延續到日常生活。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 入住須知 -->
+  <section class="section alternate" id="rules">
+    <div class="container">
+      <div class="section-title">
+        <span>GUEST INFORMATION</span>
+        <h2>入住須知</h2>
+        <p>A、B 館共用入住規定，請於入住前詳閱。</p>
+      </div>
+
+      <div class="rules-grid">
+
+        <article class="rule-card">
+          <h3>入住與退房</h3>
+          <p>入住時間：15:00 後</p>
+          <p>退房時間：11:00 前</p>
+          <p>連續入住多日可洽詢住宿優惠，期間不進房打掃及更換備品。</p>
+        </article>
+
+        <article class="rule-card">
+          <h3>提供備品</h3>
+          <p>浴巾、洗髮精、沐浴乳、吹風機。</p>
+          <p><strong>不提供牙刷、牙膏，請自行攜帶。</strong></p>
+        </article>
+
+        <article class="rule-card">
+          <h3>烤肉設備</h3>
+          <p>民宿提供烤肉爐，可自行準備食材使用。</p>
+          <div class="warning">
+            不提供木炭、烤肉網、夾子、瓦斯罐及點火用品，請自行準備。
+          </div>
+        </article>
+
+        <article class="rule-card">
+          <h3>廚房設備</h3>
+          <p>提供基本鍋具、餐具及廚具。</p>
+          <p><strong>不提供調味料及食用油。</strong></p>
+        </article>
+
+        <article class="rule-card">
+          <h3>熱水供應</h3>
+          <p>民宿使用電熱水器，加熱速度約每 3 分鐘提升 1°C。</p>
+        </article>
+
+        <article class="rule-card">
+          <h3>垃圾分類</h3>
+          <p>請將垃圾拿至戶外垃圾桶，依照分類投入。</p>
+          <p>一般垃圾、鐵鋁罐、寶特瓶、玻璃。</p>
+        </article>
+
+        <article class="rule-card">
+          <h3>停車資訊</h3>
+          <p>戶外備有約 100 坪免費停車場。</p>
+        </article>
+
+        <article class="rule-card">
+          <h3>住宿注意事項</h3>
+          <p><strong>全館禁菸。</strong></p>
+          <p>請勿拆卸或移動電子設備，損壞或遺失需依規定賠償。</p>
+          <p>監視器設於客廳、廚房、娛樂室及一樓走道。</p>
+        </article>
+
+        <article class="rule-card">
+          <h3>付款方式</h3>
+          <p>入住當天可使用現金或轉帳支付尾款。</p>
+          <p><strong>暫不提供信用卡付款。</strong></p>
+          <p>銀行匯款資訊請向官方 LINE 洽詢。</p>
+          <p>匯款後請來訊提供帳號末五碼；訂金請於約定期限內完成。</p>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- 交通資訊 -->
+  <section class="section" id="location">
+    <div class="container">
+      <div class="section-title">
+        <span>LOCATION & CONTACT</span>
+        <h2>位置與交通</h2>
+        <p>田邊走走 A、B 館地址不同，導航前請確認入住館別。</p>
+      </div>
+
+      <div class="house-grid">
+        <div class="contact-card">
+          <h3>田邊走走 A 館</h3>
+          <p>6 間四人房</p>
+          <p>宜蘭縣冬山鄉三正路 17 巷 35 號</p>
+          <a class="btn" target="_blank"
+            rel="noopener noreferrer"
+            href="https://maps.app.goo.gl/xsVBkw9yDUnNUyX89?g_st=ic">
+            Google Maps 導航 ↗
+          </a>
+          <a class="btn outline" target="_blank"
+            rel="noopener noreferrer"
+            href="https://reurl.cc/L5qyXx">
+            查詢空房與訂房 ↗
+          </a>
+        </div>
+
+        <div class="contact-card">
+          <h3>田邊走走 B 館</h3>
+          <p>2 間四人房、1 間六人房</p>
+          <p>宜蘭縣冬山鄉成興路 746 號</p>
+          <a class="btn" target="_blank"
+            rel="noopener noreferrer"
+            href="https://maps.app.goo.gl/See1kWg4fek75EYy6?g_st=ic">
+            Google Maps 導航 ↗
+          </a>
+          <a class="btn outline" target="_blank"
+            rel="noopener noreferrer"
+            href="https://reurl.cc/qvZ1lR">
+            查詢空房與訂房 ↗
+          </a>
+        </div>
+      </div>
+
+      <div class="line-section">
+        <div>
+          <h3>聯絡田邊走走</h3>
+          <p>官方 LINE：@395bjawe</p>
+          <p>電話：0915-139-858、0913-710-899</p>
+          <a class="btn" target="_blank"
+            rel="noopener noreferrer"
+            href="https://line.me/R/ti/p/@395bjawe">
+            加入官方 LINE ↗
+          </a>
+        </div>
+
+        <div>
+          <img class="qr-code"
+            src="assets/官方賴QRcode.png"
+            alt="田邊走走官方 LINE QR Code">
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <div class="container">
+    <h3>田邊走走</h3>
+    <p>宜蘭縣冬山鄉｜在田野間，享受自在的旅行時光。</p>
+    <p>官方 LINE：@395bjawe</p>
+    <p>© 田邊走走</p>
+  </div>
+</footer>
+
+<a class="floating-line" target="_blank"
+  rel="noopener noreferrer"
+  href="https://line.me/R/ti/p/@395bjawe">
+  LINE 聯絡我們
+</a>
+
+<!-- 圖片放大視窗 -->
+<div class="modal" id="imageModal">
+  <button class="modal-close" id="modalClose" aria-label="關閉">×</button>
+  <button class="modal-prev" id="modalPrev" aria-label="上一張">‹</button>
+  <img id="modalImage" alt="放大照片">
+  <button class="modal-next" id="modalNext" aria-label="下一張">›</button>
+  <p id="modalTitle"></p>
+</div>
+
+<div class="toast" id="toast" role="status"></div>
+
+</body>
+</html>
