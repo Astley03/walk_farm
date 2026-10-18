@@ -935,3 +935,62 @@ img {
     right: 15px;
   }
 }
+
+/* ==============================
+   回頂端圓形按鈕
+============================== */
+
+.back-to-top {
+  position: fixed;
+  right: 38px;
+  bottom: 84px;
+  z-index: 1401;
+
+  width: 48px;
+  height: 48px;
+
+  display: grid;
+  place-items: center;
+
+  background: #ffffff;
+  color: #486b4f;
+
+  border: 1px solid #d9e4d8;
+  border-radius: 50%;
+
+  font-size: 26px;
+  font-weight: 800;
+
+  box-shadow: 0 8px 23px rgba(35, 52, 40, 0.15);
+
+  cursor: pointer;
+
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(10px);
+
+  transition:
+    opacity 0.2s ease,
+    transform 0.2s ease,
+    visibility 0.2s ease;
+}
+
+/* 往下滑動後顯示 */
+.back-to-top.show {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+/* 滑鼠移上去 */
+.back-to-top:hover {
+  background: #e9f1e6;
+}
+
+/* 手機版位置調整 */
+@media (max-width: 790px) {
+  .back-to-top {
+    right: 28px;
+    bottom: 78px;
+  }
+}
