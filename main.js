@@ -768,6 +768,40 @@ renderMap();
 
 window.addEventListener("resize", renderPopup);
 
+
+// ========================================
+// 回頂端按鈕功能
+// ========================================
+
+const backToTopButton = document.getElementById("backToTop");
+
+// 監聽網頁捲動
+function updateBackToTop() {
+  if (window.scrollY > 260) {
+    backToTopButton.classList.add("show");
+  } else {
+    backToTopButton.classList.remove("show");
+  }
+}
+
+// 點擊後平滑回到頂端
+backToTopButton.addEventListener("click", () => {
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth"
+  });
+});
+
+// 捲動時控制按鈕顯示
+window.addEventListener(
+  "scroll",
+  updateBackToTop,
+  { passive: true }
+);
+
+// 初始化按鈕狀態
+updateBackToTop();
+
 // ========================================
 // 程式結束
 // ========================================
